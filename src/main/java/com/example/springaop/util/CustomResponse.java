@@ -1,16 +1,19 @@
 package com.example.springaop.util;
 
+import lombok.Data;
+
 import java.util.Collection;
 
-public class CustomResponse<E> {
+@Data
+public class CustomResponse<T> {
 
     private int code;
 
     private String message;
 
-    private Collection<E> responseList;
+    private Collection<T> responseList;
 
-    public CustomResponse(Collection<E> response, CustomStatus customStatus) {
+    public CustomResponse(Collection<T> response, CustomStatus customStatus) {
         this.code = customStatus.getCode();
         this.message = customStatus.getMessage();
         this.responseList = response;
